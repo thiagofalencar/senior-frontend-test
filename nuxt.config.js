@@ -13,8 +13,16 @@ export default {
 			{ hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css' }
 		]
+	},
+	rewriteRedirects: true,
+	/*
+	* Route settings
+	*/
+	router: {
+		home: '/offices',
 	},
 
 	/*
@@ -27,8 +35,16 @@ export default {
 	 */
 	buildModules: [
 		// Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-		'@nuxtjs/tailwindcss'
+		'@nuxtjs/tailwindcss',
+		"@nuxtjs/svg"
 	],
+
+	tailwindcss: {
+		cssPath: '~/assets/css/tailwind.css',
+		configPath: 'tailwind.config.js',
+		exposeConfig: false,
+		config: {}
+	},
 
 	/*
 	 * Nuxt.js modules
